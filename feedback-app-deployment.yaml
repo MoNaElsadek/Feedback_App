@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: feedback-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: feedback-app
+  template:
+    metadata:
+      labels:
+        app: feedback-app
+    spec:
+      containers:
+      - name: feedback-app
+        image: mona228/feedback-app-img:latest
+        ports:
+        - containerPort: 8000
+
